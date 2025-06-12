@@ -1,0 +1,36 @@
+https://docs.ultralytics.com/guides/raspberry-pi/#best-practices-when-using-raspberry-pi
+
+---------------------------------------------------------
+https://www.youtube.com/watch?v=7pgSFgqo8gY&t=213s
+
+https://my.cytron.io/tutorial/raspberry-pi-ai-kit-custom-object-detection-with-h&tracking=yt-products&utm_campaign=yt-products
+
+---------------------------------------------------------
+Run Yolo on Rpi 5
+https://www.youtube.com/watch?v=z70ZrSZNi-8
+
+---------------------------------------------------------
+
+RPi with HAIlo Accellerator
+https://www.youtube.com/watch?v=bDkYTdHa26U
+---------------------------------------------------------
+
+RPi poast estimation with RPi + AI HAT
+https://www.youtube.com/watch?v=jStfr1CXI1k
+
+---------------------------------------------------------
+Deploy LLM model on RPi 4 or 5
+https://www.youtube.com/watch?v=qLVocIy6XjI
+
+-------------------------------------------------
+
+RPi-5 16 GB
+-------------------
+
+https://robocraze.com/products/official-raspberry-pi-5-model-16gb-ram?variant=46969744949472&country=IN&currency=INR&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&utm_source=google&utm_medium=cpc&utm_campaign=BL+%7C+Pmax+%7C+Feed+Only+%7C+Raspberry+-+Boards+%26+Kits+%7C+24%2F05&utm_source=googleads&utm_medium=ppc&utm_campaign=21316598568&utm_content=_&utm_term=&campaignid=21316598568&adgroupid=&campaign=21316598568&gad_source=1&gad_campaignid=21322923515&gbraid=0AAAAADgHQvb3xgi_HTaJjuwxicCJLisp2&gclid=Cj0KCQjwuvrBBhDcARIsAKRrkjetjcgYJjhySTy1Dg6v3uHN0_wpwQ72aNyjMtsuLAY-3FWrQLS3JnYaAofTEALw_wcB
+
+
+
+RPi AI Hat 26 TOPS
+-------------------
+https://robu.in/product/raspberry-pi-ai-hat-26-tops/?gad_source=1&gad_campaignid=19974686076&gbraid=0AAAAADvLFWfca7avjATSFCm2HujVSEelL&gclid=CjwKCAjwl_XBBhAUEiwAWK2hznsc-Wi5PdA0hsjQsAWK7o65f25OlCGdohkBBQmgtMGKuKDwu61ZwRoCy0IQAvD_BwE
