@@ -1,72 +1,65 @@
-import cv2
+# camera_capture_picamera2.py
+
 import time
+import cv2
+from picamera2 import Picamera2
 import os
 
 def main():
-    # Create output folder if it doesn't exist
-    output_dir = "output"
-    os.makedirs(output_dir, exist_ok=True)
+    # Create output folder
+    os.makedirs("output", exist_ok=True)
 
-    # Open the CSI camera (usually index 0)
-    cap = cv2.VideoCapture(0)
+    # Initialize Picamera2 and preview configuration
+    picam2 = Picamera2()
+    config = picam2.create_video_configuration(main={"format": "RGB888", "size": (640, 480)})
+    picam2.configure(config)
+    picam2.start()
+    time.sleep(2)  # warm-up
 
-    if not cap.isOpened():
-        print("❌ Failed to open camera")
-        return
+    print("📷 Press 'i' to capture image, 'v' to start/stop video, 'q' to quit.")
 
-    print("📷 Camera opened. Press 'i' to capture image, 'v' to start video, 'q' to quit.")
-
-    video_writer = None
     recording = False
+    video_writer = None
 
     while True:
-        ret, frame = cap.read()
-        if not ret:
-            print("❌ Failed to grab frame")
-            break
-
-        # Show the live preview
+        # Get frame from camera
+        frame = picam2.capture_array()
         cv2.imshow("Camera Preview", frame)
 
         key = cv2.waitKey(1) & 0xFF
 
-        # Press 'i' to capture an image
         if key == ord('i'):
             timestamp = time.strftime("%Y%m%d-%H%M%S")
-            image_path = os.path.join(output_dir, f"image_{timestamp}.jpg")
-            cv2.imwrite(image_path, frame)
-            print(f"✅ Image saved: {image_path}")
+            img_path = f"output/image_{timestamp}.jpg"
+            cv2.imwrite(img_path, frame)
+            print(f"✅ Image saved: {img_path}")
 
-        # Press 'v' to start/stop video recording
         elif key == ord('v'):
             recording = not recording
             if recording:
                 timestamp = time.strftime("%Y%m%d-%H%M%S")
-                video_path = os.path.join(output_dir, f"video_{timestamp}.avi")
+                video_path = f"output/video_{timestamp}.avi"
                 fourcc = cv2.VideoWriter_fourcc(*'XVID')
                 fps = 20.0
-                frame_size = (frame.shape[1], frame.shape[0])
-                video_writer = cv2.VideoWriter(video_path, fourcc, fps, frame_size)
+                size = (frame.shape[1], frame.shape[0])
+                video_writer = cv2.VideoWriter(video_path, fourcc, fps, size)
                 print(f"🎥 Recording started: {video_path}")
             else:
                 video_writer.release()
                 video_writer = None
                 print("🛑 Recording stopped")
 
-        # Press 'q' to quit
         elif key == ord('q'):
             break
 
-        # Write frame to video if recording
         if recording and video_writer is not None:
             video_writer.write(frame)
 
-    # Cleanup
-    cap.release()
     if video_writer:
         video_writer.release()
     cv2.destroyAllWindows()
-    print("🔚 Camera closed")
+    picam2.stop()
+    print("🔚 Camera closed.")
 
 if __name__ == "__main__":
     main()
